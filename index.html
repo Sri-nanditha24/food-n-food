@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Love Food!</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <div id="home">
+  <div class="header">
+    <div id="logo">
+      <img src="foodlogo.jpg">
+    <h1>Food Hub</h1>
+    </div>
+    
+    <div class="navigation">
+    <nav>
+        <ul>
+          <li><a href="#home">Home</a></li>
+          <li><a href="#recipes">Recipes</a></li>
+          <li><a href="#"><li>Pages</a></li>
+          <li><a href="#">Blog</a></li>
+          <li><a href="#">Shop</a></li>
+          <li><a href="#">Shortcodes</a></li>
+          <button class="submit-button">Submit Recipe</button>
+        </ul>
+    </nav>
+    </div>  
+  </div>
+  <p class="matter">It is even better than<br>expensive Cooking Book!!</p>
+  <p id="submatter">Learn how to cook favourite restaurant dishes!</p>
+
+  <section class="search-section">
+  <div class="search-container">
+    <input type="text" placeholder="I want to make..." class="search-input">
+    <select class="categories-dropdown">
+      <option value="">Categories</option>
+      <option value="breakfast">Breakfast</option>
+      <option value="lunch">Lunch</option>
+      <option value="dinner">Dinner</option>
+      <option value="desserts">Desserts</option>
+    </select>
+    <button class="search-btn">🔍</button>
+  </div>
+  </section>
+</div>
+  <div id="recipes">
+    <div class="container">
+      <div id="matter2">
+      <h2>Recipes by Category</h2>
+      <h4>రుచుల విభాగం: ప్రతి వంటకానికి ప్రత్యేక కోణం</h4>
+    </div>
+    </div>
+  </div>
+
+  <div id="typesofdishes">
+    <div class="dish">
+        <div class="dishlist">
+            <div class="dishes">
+                <a><img src="indianthali.jpg" id="thali" alt=""></a>
+                <p id="info" style="display: none;"></p>
+                <script>
+                 document.getElementById("thali").addEventListener("click", function () {
+        document.getElementById("info").innerHTML = `
+        <strong>🍛 Indian Thali Components 🍛</strong><br><br>
+
+        <strong>1️⃣ Staple Foods (Base of the Thali)</strong><br>
+        - Rice (Chawal) – Plain steamed rice or flavored rice like Jeera Rice, Biryani, or Pulao.<br>
+        - Roti / Chapati / Paratha / Naan – Different types of Indian bread made from wheat flour or other grains.<br><br>
+
+        <strong>2️⃣ Dal & Lentils</strong><br>
+        - Dal Tadka – Lentils cooked with tempering of ghee, garlic, and spices.<br>
+        - Dal Makhani – A creamy black lentil dish, famous in North India.<br>
+        - Sambar – South Indian lentil stew with vegetables and tamarind.<br>
+        - Rasam – A spicy, tangy South Indian soup made from tamarind and spices.<br><br>
+
+        <strong>3️⃣ Vegetable Curries (Sabzi)</strong><br>
+        - Paneer Butter Masala – A rich, creamy tomato-based curry with paneer (cottage cheese).<br>
+        - Aloo Gobi – A dry curry made with potatoes (aloo) and cauliflower (gobi).<br>
+        - Bhindi Masala – Spiced okra (ladyfinger) cooked with onions and tomatoes.<br>
+        - Baingan Bharta – Roasted eggplant mashed and cooked with spices.<br><br>
+
+        <strong>4️⃣ Dry & Stir-Fried Vegetables (Poriyal / Sabzi)</strong><br>
+        - Cabbage Poriyal – Stir-fried cabbage with coconut, a South Indian favorite.<br>
+        - Beans Fry – Green beans cooked with mustard seeds and curry leaves.<br>
+        - Aloo Jeera – Stir-fried potatoes with cumin seeds.<br><br>
+
+        <strong>5️⃣ Accompaniments & Condiments</strong><br>
+        - Pickles (Achaar) – Spicy and tangy preserved mango, lemon, or mixed vegetable pickles.<br>
+        - Papad (Pappadam) – Crispy lentil-based wafers, sometimes roasted or fried.<br>
+        - Chutney – Various chutneys like coconut chutney, mint chutney, or tomato chutney.<br>
+        - Raita – Yogurt-based side dish with cucumber, boondi, or onions.<br><br>
+
+        <strong>6️⃣ Non-Vegetarian Additions (Optional in Some Thalis)</strong><br>
+        - Chicken Curry – Spicy, flavorful chicken cooked in a tomato-based gravy.<br>
+        - Fish Curry – Coastal-style fish cooked with coconut or tamarind-based gravy.<br>
+        - Egg Curry – Hard-boiled eggs cooked in a spiced tomato-based sauce.<br><br>
+
+        <strong>7️⃣ Sweets & Desserts 🍬</strong><br>
+        - Gulab Jamun – Deep-fried milk dumplings soaked in sugar syrup.<br>
+        - Rasgulla – Soft and spongy cottage cheese balls soaked in sugar syrup.<br>
+        - Kheer / Payasam – Rice or vermicelli pudding cooked with milk and sugar.<br>
+        - Jalebi – Deep-fried spiral-shaped sweets dipped in sugar syrup.<br><br>
+
+        <strong>8️⃣ Beverages ☕</strong><br>
+        - Masala Chai – Spiced tea with milk and aromatic Indian spices.<br>
+        - Lassi – A thick yogurt-based drink, sweet or salted.<br>
+        - Buttermilk (Chaas) – Light yogurt-based drink with cumin and coriander.<br>
+        - Filter Coffee – Strong, aromatic South Indian coffee.<br><br>
+
+        <strong>🥗 Regional Variations of Indian Thali</strong><br>
+        - North Indian Thali – Roti, Dal Makhani, Paneer, Rice, Raita, and Gulab Jamun.<br>
+        - South Indian Thali – Rice, Sambar, Rasam, Poriyal, Curd, Payasam, and Papad.<br>
+        - Gujarati Thali – Thepla, Dal, Kadhi, Undhiyu, Aamras, and Farsan.<br>
+        - Rajasthani Thali – Dal Baati Churma, Gatte ki Sabzi, Ker Sangri, and Churma.<br>
+        - Bengali Thali – Rice, Fish Curry, Shukto, Dal, Mishti Doi, and Rasgulla.<br>
+        - Maharashtrian Thali – Bhakri, Pithla, Varan Bhaat, Sabudana Khichdi, and Modak.<br>
+        `;
+    });
+                </script>
+                <div class="layer">
+                    <h3>Indian</h3>
+                    <p>Indian cuisine is a symphony of bold spices, vibrant colors, and soulful flavors, weaving tradition into every bite.</p>
+                </div>
+
+            </div>
+
+
+            <div class="dishes">
+                <img src="chinese.jpg" alt="">
+                <div class="layer">
+                    <h3>Chinese</h3>
+                    <p>Chinese cuisine: A perfect harmony of delicate flavors, rich aromas, and timeless traditions.</p>
+                   
+                </div>
+            </div>
+            <div class="dishes">
+                <img src="italian2.jpg" alt="">
+                <div class="layer">
+                    <h3>Italian</h3>
+                    <p>Italian cuisine: A timeless dance of rich flavors, fresh ingredients, and culinary passion.</p>
+                    
+                </div>
+            </div>
+
+            <div class="dishes">
+                <img src="desserts.jpg" alt="">
+                <div class="layer">
+                    <h3>Desserts</h3>
+                    <p>Desserts:Sweet moments crafted with love, one indulgent bite at a time. </p>
+                    
+                </div>
+            </div>
+            
+        </div>
+    </div>
+  </div>
+
+    
+
+</body>
+</html>
