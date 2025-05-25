@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Recipe Details</title>
+  <style>
+    body { font-family: Arial, sans-serif; padding: 20px; max-width: 700px; margin: auto; }
+    h1 { margin-bottom: 10px; }
+    img { max-width: 100%; height: auto; border-radius: 8px; margin-bottom: 20px; }
+    h2 { margin-top: 30px; }
+    ul { list-style: disc inside; }
+    .ingredient { margin-bottom: 5px; }
+    .instructions { white-space: pre-wrap; line-height: 1.5; }
+    a.back-link { display: inline-block; margin-top: 20px; text-decoration: none; color: #2a7ae2; }
+    a.back-link:hover { text-decoration: underline; }
+  </style>
+</head>
+<body>
+  <a href="result.html" class="back-link">← Back to results</a>
+  <h1 id="meal-name">Loading...</h1>
+  <img id="meal-img" src="" alt="Meal Image" />
+  
+  <h2>Ingredients</h2>
+  <ul id="ingredients-list"></ul>
+  
+  <h2>Instructions</h2>
+  <p id="instructions" class="instructions"></p>
+<script>
+  const API_KEY = "5ec9d3981fad41618f76c28acbc0aa68";
+const mealId = new URLSearchParams(window.location.search).get('id');
+
+fetch(`https://api.spoonacular.com/recipes/${mealId}/information?apiKey=${API_KEY}`)
+  .then(res => res.json())
+  .then(data => {
+    document.getElementById('meal-name').textContent = data.title;
+    document.getElementById('meal-img').src = data.image;
+    document.getElementById('meal-img').alt = data.title;
+
+    const ul = document.getElementById('ingredients-list');
+    data.extendedIngredients.forEach(ing => {
+      const li = document.createElement('li');
+      li.textContent = `${ing.original}`;
+      ul.appendChild(li);
+    });
+
+    document.getElementById('instructions').innerHTML = data.instructions || "No instructions available.";
+  })
+  .catch(error => {
+    document.getElementById('meal-name').textContent = 'Error loading recipe details.';
+    console.error(error);
+  });
+</script>
+</body>
+</html>

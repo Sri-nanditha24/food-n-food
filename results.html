@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Recipe Results</title>
+  <style>
+    body { font-family: Arial, sans-serif; padding: 20px; }
+    h1 { margin-bottom: 20px; }
+    ul { list-style: none; padding: 0; }
+    li { margin-bottom: 10px; }
+    a { text-decoration: none; color: #2a7ae2; }
+    a:hover { text-decoration: underline; }
+  </style>
+</head>
+<body>
+  <h1>Recipe Results</h1>
+  <div id="results">Loading recipes...</div>
+
+<script>
+const API_KEY = "5ec9d3981fad41618f76c28acbc0aa68"; 
+const searchTerm = new URLSearchParams(window.location.search).get('search');
+
+fetch(`https://api.spoonacular.com/recipes/complexSearch?query=${encodeURIComponent(searchTerm)}&number=10&apiKey=${API_KEY}`)
+  .then(res => res.json())
+  .then(data => {
+    if (!data.results || data.results.length === 0) {
+      document.getElementById('results').innerHTML = '<p>No recipes found.</p>';
+      return;
+    }
+
+    const ul = document.createElement('ul');
+    data.results.forEach(recipe => {
+      const li = document.createElement('li');
+      const a = document.createElement('a');
+      a.href = `details.html?id=${recipe.id}`;
+      a.textContent = recipe.title;
+      li.appendChild(a);
+      ul.appendChild(li);
+    });
+    document.getElementById('results').innerHTML = '';
+    document.getElementById('results').appendChild(ul);
+  })
+  .catch(error => {
+    document.getElementById('results').innerHTML = '<p>Error fetching recipes.</p>';
+    console.error(error);
+  });
+</script>
+
+
+</body>
+</html>
