@@ -134,8 +134,8 @@ h1{
 
 .categories-dropdown {
   border: none;
-  background-color: violet;
-  color: #fff;
+  background-color: pink;
+  color: black;
   padding: 12px 15px;
   cursor: pointer;
   outline: none;
@@ -279,3 +279,32 @@ transform: scale(1.1);
   color: white;
   cursor: pointer;
 }
+footer {
+  background-color: #333;
+  color: white;
+  padding: 20px 0;
+  text-align: center;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin-top: 50px;
+}
+
+.footer-container {
+  max-width: 900px;
+  margin: auto;
+}
+
+.footer-links {
+  margin-top: 10px;
+}
+
+.footer-links a {
+  color: #ccc;
+  text-decoration: none;
+  margin: 0 10px;
+  transition: color 0.3s ease;
+}
+
+.footer-links a:hover {
+  color: aqua;
+}
+
